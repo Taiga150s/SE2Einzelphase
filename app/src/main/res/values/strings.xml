@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SE2Einzelphase_11808621</string>
+    <string name="buttonSend">Abschicken</string>
+    <string name="ServerAnswer">Antwort vom Server</string>
+    <string name="enterMatrNr">Gib deine Matrikelnummer ein</string>
+    <string name="blankTextView">" "</string>
 </resources>
