@@ -12,6 +12,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -46,6 +47,50 @@ public class MainActivity extends AppCompatActivity {
                sendToServer(editText.getText().toString());
 
 
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+            calculation(editText.getText().toString());
+            }
+        });
+    }
+
+    public void calculation(String number){
+       char[] arr = number.toCharArray();
+       StringBuilder gerade = new StringBuilder();
+       StringBuilder ungerade = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                gerade.append(arr[i]);
+                gerade.append(" ");
+            } else {
+                ungerade.append(arr[i]);
+                ungerade.append(" ");
+            }
+        }
+        String[] g = gerade.toString().split(" ");
+        String[] u = ungerade.toString().split(" ");
+        Arrays.sort(g);
+        Arrays.sort(u);
+        final StringBuilder sorted = new StringBuilder();
+        for (int i = 0; i < g.length; i++) {
+            sorted.append(g[i]);
+
+        }
+        for (int i = 0; i < u.length; i++) {
+            sorted.append(u[i]);
+
+        }
+        System.out.println(sorted.toString());
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                textView3.setText(sorted.toString());
             }
         });
     }
